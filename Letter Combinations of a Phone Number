@@ -1,0 +1,26 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Aug 27 21:21:26 2017
+
+@author: wilkenshuang
+
+"""
+
+class Solution(object):
+    def letterCombinations(self, digits):
+        """
+        :type digits: str
+        :rtype: List[str]
+        """
+        if ''==digits:
+            return []
+        kvmaps={'2':'abc','3':'def','4':'ghi','5':'jkl',
+               '6':'mno','7':'pqrs','8':'tuv','9':'wxyz'}
+        ret=['']
+        for i in digits:
+            temp=[]
+            for x in ret:
+                for y in kvmaps[i]:
+                    temp.append(x+y)
+            ret=temp
+        return ret
